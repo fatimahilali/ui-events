@@ -33,3 +33,19 @@ interaction.addEventListener('animationend', jumpHandler)
 
 // Stap 3: (Callback functie met) classList (.toggle(), .add(), etc.)
 // bibberLink.classList.toggle...
+
+
+
+// Selecteer het eerste linkje
+let bibberLink = document.querySelector('a:nth-of-type(1)');
+
+// Voeg een event listener toe voor een dubbelklik
+bibberLink.addEventListener('dblclick', () => {
+  // Voeg de class 'bibberen' toe
+  bibberLink.classList.add('bibberen');
+
+  // Verwijder de class na de duur van de animatie (0.5s in dit geval)
+  setTimeout(() => {
+    bibberLink.classList.remove('bibberen');
+  }, 500);
+});
