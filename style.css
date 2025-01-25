@@ -1,4 +1,7 @@
-/* Basic style */
+/* =============================================
+   Basisthema en herbruikbare variabelen
+   ============================================= */
+
 :root {
   --primary: #fff;
   --secondary: #050840;
@@ -38,7 +41,10 @@ a {
 }
 
 
-/* UI Event Classes */
+  /* =============================================
+     UI Event Classes
+     ============================================= */
+  
 
 /* Jump animation on the interaction link */
 a:nth-of-type(12) {
@@ -79,16 +85,162 @@ a:nth-of-type(12) {
   }
 }
 
-
-/* Hieronder komen jouw animaties */
-.bibberen {
-  animation: bibberen 0.5s ease-in-out;
-}
-
-@keyframes bibberen {
-  0% { transform: translateX(0); }
-  25% { transform: translateX(-0.3125rem); } 
-  50% { transform: translateX(0.3125rem); } 
-  75% { transform: translateX(-0.3125rem); } 
-  100% { transform: translateX(0); }
-}
+  
+  /* Bibberen animatieklasse */
+  .bibberen {
+    animation: bibberen 0.5s ease-in-out; /* Gebruik keyframes voor bibberen */
+  }
+  
+  @keyframes bibberen {
+    0%,
+    100% {
+      transform: translateX(0);
+    } /* Begin- en eindpositie */
+    25% {
+      transform: translateX(-0.3125rem);
+    } /* Kleine beweging naar links */
+    50% {
+      transform: translateX(0.3125rem);
+    } /* Kleine beweging naar rechts */
+    75% {
+      transform: translateX(-0.3125rem);
+    } /* Terug naar links */
+  }
+  
+  /* Hover-effect met rotatie en kleurverandering */
+  .hover-effect:hover {
+    transform: rotate(10deg); /* Draai de link een beetje */
+    background: var(
+      --highlight-secondary
+    ); /* Verander achtergrondkleur naar paars */
+    color: var(--primary); /* Maak tekstkleur wit */
+    transition: all 0.3s ease-in-out; /* Soepele overgang */
+  }
+  
+  /* Pulse-effect */
+  .pulse {
+    animation: pulse 0.6s ease-in-out; /* Gebruik de pulse keyframes */
+  }
+  
+  @keyframes pulse {
+    0%,
+    100% {
+      transform: scale(1);
+    } /* Begin en eind normaal */
+    50% {
+      transform: scale(1.3);
+    } /* Tijdelijke vergroting */
+  }
+  
+  /* Dubbelklik rotatie-effect */
+  .double-click-effect {
+    transform: rotate(360deg); /* Roteer volledig */
+    background: var(--highlight-secondary); /* Achtergrond wordt paars */
+    color: var(--primary); /* Tekst wordt wit */
+    transition:
+      transform 0.8s ease,
+      background 0.8s ease,
+      color 0.8s ease; /* Soepele overgang */
+  }
+  
+  /* Zoom-in-out effect */
+  .zoom-in-out-effect {
+    animation: zoom-in-out 0.8s ease-in-out; /* Gebruik zoom keyframes */
+  }
+  
+  @keyframes zoom-in-out {
+    0%,
+    100% {
+      transform: scale(1);
+    } /* Begin en eind normaal */
+    50% {
+      transform: scale(1.5);
+    } /* Tijdelijke vergroting */
+  }
+  
+  /* Glow-effect */
+  .glow {
+    transition: box-shadow 0.3s ease-in-out; 
+  }
+  
+  .glow:focus,
+  .glow:hover {
+    box-shadow:
+      0 0 10px var(--highlight-primary, #00ff00), 
+      0 0 20px var(--highlight-primary, #00ff00),
+      0 0 30px var(--highlight-primary, #00ff00); /* Meerdere lagen voor het gloedeffect */
+  }
+  
+  /* Flip animatie */
+  .flip {
+    animation: flip 1s ease-in-out; /* Gebruik flip keyframes */
+  }
+  
+  @keyframes flip {
+    0% {
+      transform: perspective(400px) rotateY(0deg);
+    } /* Geen rotatie */
+    100% {
+      transform: perspective(400px) rotateY(360deg);
+    } /* Volledige rotatie */
+  }
+  
+  /* Flow-animatie */
+  .flow {
+    position: relative; /* Vereist voor beweging */
+    animation: mymove 2s ease-in-out; /* Gebruik flow keyframes */
+  }
+  
+  @keyframes mymove {
+    0%,
+    100% {
+      top: 0px;
+    } /* Start- en eindpositie */
+    25%,
+    75% {
+      top: 200px;
+    } /* Beweeg naar beneden */
+    50% {
+      top: 100px;
+    } /* Halverwege */
+  }
+  
+  /* Schud-effect */
+  .user {
+    animation: shake 0.6s ease-in-out; /* Gebruik shake keyframes */
+  }
+  
+  @keyframes shake {
+    0%,
+    100% {
+      transform: translateX(0);
+    } /* Begin- en eindpositie */
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+      transform: translateX(-5px);
+    } /* Beweeg naar links */
+    20%,
+    40%,
+    60%,
+    80% {
+      transform: translateX(5px);
+    } /* Beweeg naar rechts */
+  }
+  
+  /* Schaalvergroting */
+  .interface {
+    animation: scale-up 0.5s ease; /* Gebruik scale-up keyframes */
+  }
+  
+  @keyframes scale-up {
+    0% {
+      transform: scale(1);
+    } /* Originele grootte */
+    100% {
+      transform: scale(1.2);
+    } /* Vergroten */
+  }
+  
